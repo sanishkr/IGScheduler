@@ -8,6 +8,5 @@ import com.sns.igscheduler.model.Igpost;
 
 @Repository
 public interface IgpostRepo extends MongoRepository<Igpost,String> {
-    public Igpost findByid(String Id);
-    public List<Igpost> findByimageurl(String imageURI);
+    public Igpost findByimageurl(String imageURI);
 }

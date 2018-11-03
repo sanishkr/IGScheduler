@@ -15,7 +15,6 @@ public class IgpostService {
 
     /**Create
      *
-     * @param id
      * @param imageurl
      * @param postdate
      * @param posttime
@@ -33,22 +32,20 @@ public class IgpostService {
     public List<Igpost> getAll(){
         return igpostRepo.findAll();
     }
-    public Igpost getById(String id) {
-        return igpostRepo.findByid(id);
+    public Igpost getByImage(String image) {
+        return igpostRepo.findByimageurl(image);
     }
 
     /**Update
      *
-     * @param Id
      * @param imageurl
      * @param postdate
      * @param posttime
      * @param captions
      * @return
      */
-    public Igpost update(String Id, String imageurl,String postdate,String posttime,String captions) {
-        Igpost igp = igpostRepo.findByid(Id);
-        igp.setImageurl(imageurl);
+    public Igpost update(String imageurl,String postdate,String posttime,String captions) {
+        Igpost igp = igpostRepo.findByimageurl(imageurl);
         igp.setPostdate(postdate);
         igp.setPosttime(posttime);
         igp.setCaptions(captions);
@@ -61,8 +58,8 @@ public class IgpostService {
     public void deleteAll() {
         igpostRepo.deleteAll();
     }
-    public void delete(String Id) {
-        Igpost p = igpostRepo.findByid(Id);
+    public void delete(String Image) {
+        Igpost p = igpostRepo.findByimageurl(Image);
         igpostRepo.delete(p);
     }
 }
